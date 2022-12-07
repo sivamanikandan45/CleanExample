@@ -13,4 +13,8 @@ interface MovieDao {
 
     @Delete
     suspend fun deleteMovies(movies:List<MovieEntity>)
+
+    @Query("SELECT * FROM MovieEntity where title=:query")
+    suspend fun searchMovies(query: String):List<MovieEntity>
+
 }
